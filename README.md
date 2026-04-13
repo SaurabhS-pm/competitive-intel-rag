@@ -22,8 +22,9 @@ This tool lets you type any app name and an optional feature area, ask a plain-E
 - Sentiment breakdown: Positive 20% / Negative 60% / Neutral 0% / Uncertain 20%
 - Sample reviews that support the answer
 
-*Screenshot coming soon.*
-![image.png](image.png)
+**Screenshot:**
+
+<img width="708" height="379" alt="image" src="https://github.com/user-attachments/assets/4fa67aa2-3bf0-476d-9265-8b23e7367767" />
 
 ## How to Use
 
