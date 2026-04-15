@@ -70,7 +70,7 @@ Sentiment analysis maps star ratings to labels where available and falls back to
 ## Tradeoffs and Decisions
 **Why a confidence threshold on sentiment**
 
-The first version counted ambiguous reviews like "it's okay I guess" as positive, which skewed the breakdown. A confidence threshold of 0.6 filters weak signals into an "Uncertain" bucket instead, giving a more honest picture. Users can adjust this in the sidebar depending on how strict they want the filter to be.
+The first version counted ambiguous reviews like "it's okay I guess" as positive, which skewed the breakdown. A confidence threshold(customizable) of 0.6 filters weak signals into an "Uncertain" bucket instead, giving a more honest picture. Users can adjust this in the sidebar depending on how strict they want the filter to be.
 
 **Why OpenRouter over a direct API like Groq or OpenAI**
 

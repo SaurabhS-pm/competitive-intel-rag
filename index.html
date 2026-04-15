@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saurabh S. — Senior PM</title>
+  <style>
+    /* ── Reset & base ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Shared layout ──────────────────────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────────────────── */
+    .hero {
+      background: #0f1117;
+      color: #ffffff;
+      padding: 80px 24px 72px;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-name {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #c8ccd6;
+      max-width: 600px;
+      margin-bottom: 12px;
+      line-height: 1.65;
+    }
+
+    .hero-italic {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #7a8099;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+
+    .btn-filled {
+      background: #ffffff;
+      color: #0f1117;
+      border: 2px solid #ffffff;
+    }
+    .btn-filled:hover { background: #e8eaf0; border-color: #e8eaf0; }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover { border-color: #ffffff; background: rgba(255,255,255,0.07); }
+
+    /* SVG icon helper */
+    .btn svg { flex-shrink: 0; }
+
+    /* ── STATS ──────────────────────────────────────────────────────────── */
+    .stats-section {
+      background: #f4f5f7;
+      padding: 52px 24px;
+    }
+
+    .stats-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid #e4e6ea;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .stat-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+
+    .stat-value {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #0f1117;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .stat-desc {
+      font-size: 0.83rem;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    /* ── WHAT I WORK ON ─────────────────────────────────────────────────── */
+    .work-section {
+      padding: 64px 24px;
+    }
+
+    .work-list {
+      max-width: 860px;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .work-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+
+    .work-list li::before {
+      content: "→";
+      color: #0f1117;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── PROJECTS ───────────────────────────────────────────────────────── */
+    .projects-section {
+      background: #f4f5f7;
+      padding: 64px 24px;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border: 1.5px solid #e0e2e8;
+      border-radius: 14px;
+      padding: 30px 32px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.09); transform: translateY(-3px); }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f1117;
+    }
+
+    .badge-inprogress {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffc107;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: #f0f1f5;
+      color: #333;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0f1117;
+      text-decoration: none;
+      border-bottom: 2px solid #0f1117;
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .project-link:hover { opacity: 0.6; }
+
+    /* ── SKILLS ─────────────────────────────────────────────────────────── */
+    .skills-section {
+      padding: 64px 24px;
+    }
+
+    .skills-pills {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill {
+      background: #0f1117;
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .skill-pill:hover { background: #2a2d3a; transform: translateY(-2px); }
+
+    /* ── CONNECT ────────────────────────────────────────────────────────── */
+    .connect-section {
+      background: #0f1117;
+      color: #ffffff;
+      padding: 64px 24px;
+    }
+
+    .connect-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .connect-section .section-label { color: #555e7a; }
+
+    .connect-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .connect-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #c8ccd6;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.15s ease;
+    }
+    .connect-link:hover { color: #ffffff; }
+
+    .connect-link svg { opacity: 0.6; flex-shrink: 0; }
+    .connect-link:hover svg { opacity: 1; }
+
+    /* ── Footer ─────────────────────────────────────────────────────────── */
+    .footer {
+      background: #080a0f;
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 0.75rem;
+      color: #444;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero-name { font-size: 1.85rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 22px 20px; }
+    }
+
+    @media (max-width: 420px) {
+      .hero { padding: 56px 20px 52px; }
+      .btn { padding: 9px 16px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════ HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="section-label" style="color:#3d4460">About me</p>
+      <h1 class="hero-name">Saurabh S. 👋</h1>
+      <p class="hero-sub">
+        Senior PM with 12+ years in fintech and consumer payments.
+        Currently building AI tools that automate what PMs do manually.
+      </p>
+      <p class="hero-italic">
+        Amazon Tokyo &amp; Toronto &nbsp;·&nbsp; BMO Financial &nbsp;·&nbsp; RAG and LLMs
+      </p>
+      <div class="hero-buttons">
+        <!-- LinkedIn — filled white -->
+        <a href="https://www.linkedin.com/in/saurabhsrivast/" target="_blank" rel="noopener" class="btn btn-filled">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <!-- GitHub — outline -->
+        <a href="https://github.com/SaurabhS-pm" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+        <!-- Email — outline -->
+        <a href="mailto:writeto.saurabhs@gmail.com" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">Multi-billion $</div>
+        <div class="stat-desc">GMV on payments and engagement platforms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">Millions</div>
+        <div class="stat-desc">Of users on engagement platforms I built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">50+ markets</div>
+        <div class="stat-desc">Cross-border payment launch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ WHAT I WORK ON -->
+  <section class="work-section">
+    <div class="container">
+      <p class="section-label">What I work on</p>
+      <ul class="work-list">
+        <li>Multi-billion dollar consumer payment platforms — wallets, subscriptions, cross-border rails</li>
+        <li>Engagement and gamification platforms — habit-forming loops, loyalty-linked payments, member growth</li>
+        <li>0 to 1 product launches with full lifecycle ownership from strategy through GTM</li>
+        <li>Agentic AI and RAG tools that automate manual PM workflows</li>
+        <li>ML-powered experimentation — 10+ active A/B tests, decisions grounded in data</li>
+        <li>Cross-functional alignment with Country and Worldwide VPs</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ PROJECTS -->
+  <section class="projects-section">
+    <div class="container">
+      <p class="section-label">Projects</p>
+      <div class="project-card">
+      <div class="project-header">
+        <span class="project-title">Competitive Intelligence RAG App</span>
+        <span class="badge-inprogress">In progress</span>
+      </div>
+      <p class="project-desc">
+        Scrapes App Store and Google Play reviews, answers product questions about any
+        competitor app with sentiment analysis. Built because I spent too many hours
+        reading reviews manually.
+      </p>
+      <div class="stack-tags">
+        <span class="tag">Python</span>
+        <span class="tag">ChromaDB</span>
+        <span class="tag">OpenRouter</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">ONNX</span>
+        <span class="tag">RAG</span>
+      </div>
+      <a href="https://github.com/SaurabhS-pm/competitive-intel-rag" target="_blank" rel="noopener" class="project-link">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </a>
+      </div><!-- /.project-card -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SKILLS -->
+  <section class="skills-section">
+    <div class="container">
+      <p class="section-label">Skills &amp; tools</p>
+      <div class="skills-pills">
+        <span class="skill-pill">RAG</span>
+        <span class="skill-pill">LLMs</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Claude API</span>
+        <span class="skill-pill">Cursor</span>
+        <span class="skill-pill">Fintech</span>
+        <span class="skill-pill">Consumer Payments</span>
+        <span class="skill-pill">0 to 1 Products</span>
+        <span class="skill-pill">Agentic AI</span>
+        <span class="skill-pill">A/B Experimentation</span>
+        <span class="skill-pill">Mastercard / Card Networks</span>
+        <span class="skill-pill">Subscription Platforms</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ CONNECT -->
+  <section class="connect-section">
+    <div class="connect-inner">
+      <p class="section-label">Connect</p>
+      <div class="connect-links">
+        <a href="https://www.linkedin.com/in/saurabhsrivast/" target="_blank" rel="noopener" class="connect-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          linkedin.com/in/saurabhsrivast/
+        </a>
+        <a href="mailto:writeto.saurabhs@gmail.com" class="connect-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          writeto.saurabhs@gmail.com
+        </a>
+        <a href="https://github.com/SaurabhS-pm" target="_blank" rel="noopener" class="connect-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          github.com/SaurabhS-pm
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FOOTER -->
+  <footer class="footer">
+    Built without frameworks. Just HTML &amp; CSS.
+  </footer>
+
+</body>
+</html>
