@@ -78,7 +78,7 @@ OpenRouter lets me swap models with a single line change and no SDK refactoring.
 
 **Why ChromaDB over Pinecone**
 
-ChromaDB runs locally with zero signup friction, which matters when the goal is for anyone to clone and run this immediately. The honest tradeoff is that it is not production-ready at scale. It lacks managed hosting, access controls, and reliable performance under concurrent load. Migrating to Pinecone or Qdrant would be the first step before any team deployment.
+ChromaDB runs locally with zero signup friction, which matters when the goal is for anyone to clone and run this immediately. The  tradeoff is that it is not production-ready at scale. It lacks managed hosting, access controls, and reliable performance under concurrent load. Migrating to Pinecone or Qdrant would be the first step before any team deployment.
 
 **Why local embeddings via ONNX over OpenAI embeddings**
 
